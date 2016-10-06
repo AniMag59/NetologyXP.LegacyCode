@@ -1,4 +1,18 @@
-player.showHighScoreList = function(pageToken) {
+player.showHighScoreList = function(pageToken, utilitiesTest, gapiTest, isTesting) {
+    //utilities, gapi внешние зависимости
+    if (isTesting){
+        var utilities = utilitiesTest;
+        var gapi = gapiTest;
+        function execute(){
+
+        }
+        function createPlayerList() {
+
+        }
+        function createButton() {
+
+        }
+    }//шов
     document.querySelector('#highScoreListDiv').innerHTML = '';
     document.querySelector('#highScoreListDiv').style.display = 'block';
     // Create the request.
@@ -22,14 +36,14 @@ player.showHighScoreList = function(pageToken) {
                 root.appendChild(
                     utilities.createButton('Prev', response.prevPageToken,
                         function(event) {
-                            player.showHighScoreList(event.target.value);
+                            player.showHighScoreList(event.target.value, utilitiesTest, gapiTest, isTesting);
                         }));
             }
             if (response.nextPageToken) {
                 root.appendChild(
                     utilities.createButton('Prev', response.prevPageToken,
                         function(event) {
-                            player.showHighScoreList(event.target.value);
+                            player.showHighScoreList(event.target.value, utilitiesTest, gapiTest, isTesting);
                         }));
             }
         });
