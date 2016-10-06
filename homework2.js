@@ -1,4 +1,11 @@
-function formSetEditReport(idReport) {
+function formSetEditReport(idReport, ReportPluginTest, isTesting) {
+    //ReportPlugin добавить в параметр тем самым избавиться от внешней зависимости
+    if (isTesting){
+        var ReportPlugin = ReportPluginTest;
+        function toggleReportType(){
+
+        }
+    }//шов
     var report = {
         'type': ReportPlugin.defaultReportType,
         'format': ReportPlugin.defaultReportFormat,
@@ -33,6 +40,10 @@ function formSetEditReport(idReport) {
     }
 
     updateReportParametersFunctions[report.type](report.parameters);
-
+    /*
+    * Тут я не совсем уверен можно ли убрать эту функцию так как она зависит от report.type,
+    * но если бы report.type было ограниченное количество,
+    * то можно было бы прописать их все точно так же как toggleReportType()
+    * */
     $('#report_idreport').val(idReport);
 }
