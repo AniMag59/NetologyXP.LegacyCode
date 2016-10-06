@@ -1,5 +1,9 @@
-function checkURL() {
+function checkURL(isTesting) {
+    if (isTesting){
+        function loadURL(){
 
+        }
+    }//шов
     //get the url by removing the hash
     var url = location.hash.replace(/^#/, '');
 
@@ -10,7 +14,7 @@ function checkURL() {
         $('nav li.active').removeClass("active");
         // match the url and add the active class
         $('nav li:has(a[href="' + url + '"])').addClass("active");
-        var title = ($('nav a[href="' + url + '"]').attr('title'))
+        var title = ($('nav a[href="' + url + '"]').attr('title'));
 
         // change page title from global var
         document.title = (title || document.title);
