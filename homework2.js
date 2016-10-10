@@ -5,7 +5,7 @@ function formSetEditReport(idReport, ReportPluginTest, isTesting) {
         function toggleReportType(){
 
         }
-    }//шов
+    }
     var report = {
         'type': ReportPlugin.defaultReportType,
         'format': ReportPlugin.defaultReportFormat,
@@ -23,7 +23,7 @@ function formSetEditReport(idReport, ReportPluginTest, isTesting) {
         $('#report_submit').val(ReportPlugin.createReportString);
     }
 
-    toggleReportType(report.type);
+    toggleReportType(report.type);//шов
 
     $('#report_description').html(report.description);
     $('#report_segment').find('option[value=' + report.idsegment + ']').prop('selected', 'selected');
