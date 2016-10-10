@@ -12,7 +12,7 @@ player.showHighScoreList = function(pageToken, utilitiesTest, gapiTest, isTestin
         function createButton() {
 
         }
-    }//шов
+    }
     document.querySelector('#highScoreListDiv').innerHTML = '';
     document.querySelector('#highScoreListDiv').style.display = 'block';
     // Create the request.
@@ -23,7 +23,7 @@ player.showHighScoreList = function(pageToken, utilitiesTest, gapiTest, isTestin
             timeSpan: 'all_time',
             pageToken: pageToken,
             maxResults: '10'});
-    request.execute(
+    request.execute(//шов
         function(response) {
             console.log('High score', response);
             if (response.error) {
@@ -31,7 +31,7 @@ player.showHighScoreList = function(pageToken, utilitiesTest, gapiTest, isTestin
                 return;
             }
             var root = document.getElementById('highScoreListDiv');
-            player.createPlayerList(root, response.items, true);
+            player.createPlayerList(root, response.items, true);//шов
             if (response.prevPageToken) {
                 root.appendChild(
                     utilities.createButton('Prev', response.prevPageToken,
@@ -41,7 +41,7 @@ player.showHighScoreList = function(pageToken, utilitiesTest, gapiTest, isTestin
             }
             if (response.nextPageToken) {
                 root.appendChild(
-                    utilities.createButton('Prev', response.prevPageToken,
+                    utilities.createButton('Prev', response.prevPageToken,//шов
                         function(event) {
                             player.showHighScoreList(event.target.value, utilitiesTest, gapiTest, isTesting);
                         }));
