@@ -3,7 +3,7 @@ function checkURL(isTesting) {
         function loadURL(){
 
         }
-    }//шов
+    }
     //get the url by removing the hash
     var url = location.hash.replace(/^#/, '');
 
@@ -21,7 +21,7 @@ function checkURL(isTesting) {
         //console.log("page title: " + document.title);
 
         // parse url to jquery
-        loadURL(url + location.search, container);
+        loadURL(url + location.search, container);//шов
     } else {
 
         // grab the first URL from nav
